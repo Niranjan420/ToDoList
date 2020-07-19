@@ -1,7 +1,6 @@
 let todoList = {
   todos: [],
   // todos: [{todoText: ..., completed: false}, {todoText: ..., completed: false}]
-
   displayTodos: function () {
     if (this.todos.length === 0) {
       console.log("Your To-Do list is empty!");
@@ -64,3 +63,69 @@ let todoList = {
     this.displayTodos();
   },
 };
+
+//Display Todos button will display todos
+const displayTodosButton = document.getElementById("displayTodosButton");
+displayTodosButton.addEventListener("click", function () {
+  todoList.displayTodos();
+});
+//Toggle All button toggles all todos
+const toggleAllButton = document.getElementById("toggleAllButton");
+toggleAllButton.addEventListener("click", function () {
+  todoList.toggleAll();
+});
+
+//add todo text
+const addTodoTextButton = document.getElementById("addTodoTextButton");
+const addTodoTextInput = document.getElementById("addTodoTextInput");
+addTodoTextButton.addEventListener("click", function () {
+  todoList.addTodo(addTodoTextInput.value);
+  addTodoTextInput.value = "";
+});
+addTodoTextInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    todoList.addTodo(addTodoTextInput.value);
+    addTodoTextInput.value = "";
+  }
+}); //pressing enter
+
+//changing todos
+const changeTodoButton = document.getElementById("changeTodoButton");
+const changeTodoPositionInput = document.getElementById(
+  "changeTodoPositionInput"
+);
+const changeTodoTextInput = document.getElementById("changeTodoTextInput");
+changeTodoButton.addEventListener("click", function () {
+  todoList.changeTodo(
+    changeTodoPositionInput.valueAsNumber,
+    changeTodoTextInput.value
+  );
+  changeTodoPositionInput.value = "";
+  changeTodoTextInput.value = "";
+});
+changeTodoTextInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    todoList.changeTodo(
+      changeTodoPositionInput.value,
+      changeTodoTextInput.value
+    );
+    changeTodoPositionInput.value = "";
+    changeTodoTextInput.value = "";
+  }
+}); //pressing enter
+
+//delete Todo
+const deleteTodoButton = document.getElementById("deleteTodoButton");
+const deleteTodoPositionInput = document.getElementById(
+  "deleteTodoPositionInput"
+);
+deleteTodoButton.addEventListener("click", function () {
+  todoList.deleteTodo(deleteTodoPositionInput.value);
+  deleteTodoPositionInput.value = "";
+});
+deleteTodoPositionInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    todoList.deleteTodo(deleteTodoPositionInput.value);
+    deleteTodoPositionInput.value = "";
+  }
+}); //pressing enter

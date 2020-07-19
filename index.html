@@ -9,6 +9,33 @@
   <body>
     <main>
       <h1>To-Do List!</h1>
+      <div>
+        <button id="displayTodosButton">Display Todos</button>
+        <button id="toggleAllButton">Toggle All</button>
+      </div>
+      <br />
+      <div>
+        <input type="text" id="addTodoTextInput" />
+        <button id="addTodoTextButton">Add</button>
+      </div>
+      <br />
+      <div>
+        <input
+          type="number"
+          id="changeTodoPositionInput"
+          placeholder="position to change"
+        />
+        <input type="text" id="changeTodoTextInput" placeholder="new To-do" />
+        <button id="changeTodoButton">Change</button>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="deleteTodoPositionInput"
+          placeholder="Position of todo you want to delete"
+        />
+        <button id="deleteTodoButton">Delete To-Do</button>
+      </div>
     </main>
     <script src="toDoScript.js"></script>
   </body>
